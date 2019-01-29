@@ -1,3 +1,7 @@
+How do I change my backlight colour?
+Download asus_rog.o from the obj folder and execute it with the command
+	sudo ./asus_rog color_format color_code 
+
 ASUS ROG GL553VE Backlight reverse engineering:
 
 Observations:
