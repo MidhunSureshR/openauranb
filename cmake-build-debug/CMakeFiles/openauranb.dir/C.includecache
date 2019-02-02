@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/rmidhunsuresh/CLionProjects/openauranb/rog_aura.c
+stdio.h
+-
+libusb-1.0/libusb.h
+-
+

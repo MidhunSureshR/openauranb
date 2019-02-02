@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/openauranb.dir/rog_aura.c.o  -o openauranb -lusb-1.0 
