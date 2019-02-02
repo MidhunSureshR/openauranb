@@ -1,8 +1,15 @@
 #include <stdio.h>
 #include <libusb-1.0/libusb.h>
+#include <inttypes.h>
 
 #define rogAuraHID_PID 6228
 #define rogAuraHID_VID 2821
+
+struct colorValues{
+    int redKey;
+    int greenKey;
+    int blueKey;
+}colorProfile;
 
 int isROGAura(libusb_device *device){
     struct libusb_device_descriptor hardwareINFO;
@@ -48,17 +55,22 @@ void sendBytes(char packet[],libusb_device_handle *handle){
         printf("Number of transferred bytes = %d\n",isError);
     }
 }
+
 void sendControlTransfer(libusb_device_handle *handle){
     char packet_bytes_color[] = {
             0x5d, 0xb3, 0x00, 0x00,
             //Color goes next
             //default color #ffffff
             0xff, 0xff, 0xff,
-
             0x00,0x00, 0x00, 0x00,
             0x00, 0x00, 0x00, 0x00,
             0x00, 0x00
     };
+
+    packet_bytes_color[4] = colorProfile.redKey;
+    packet_bytes_color[5] = colorProfile.greenKey;
+    packet_bytes_color[6] = colorProfile.blueKey;
+
     char packet_bytes_set[] = {
             //This packet need to be send next to set the color.
             0x5d, 0xb5, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -119,7 +131,31 @@ void handleDevice(libusb_device *device, uint8_t interfaceNumber){
 
 }
 
-int main()
+void checkArguments(int argc,char* argv[]){
+    uintmax_t R,G,B;
+    colorProfile.redKey = colorProfile.blueKey = colorProfile.greenKey = 0xff;
+    if(argc < 4){
+        printf("No RGB colour code specified as arguments.RGB(255,255,255) will be used.\n");
+        return;
+    }
+    if(argc > 4){
+        printf("Too many arguments found.Only first three will be considered.\n");
+    }
+    R = strtoumax(argv[1],NULL,16);
+    G = strtoumax(argv[2],NULL,16);
+    B = strtoumax(argv[3],NULL,16);
+   if(R > 597 || G > 597 || B > 597){
+       printf("Invalid arguments.The color must be passed in RGB format.\nRGB(255,255,255) will be used.\n");
+       printf("%d + %d + %d \n",R,G,B);
+       return;
+   }
+   colorProfile.redKey = R;
+   colorProfile.blueKey = B;
+   colorProfile.greenKey = G;
+
+}
+
+int main(int argc,char* argv[])
 {
     int isError;
     libusb_device **all_usb_devices;
@@ -131,12 +167,13 @@ int main()
     ssize_t number_of_devices;
     ssize_t i;
 
-    printf("Asus ROG AURA USB Tester\n");
+    checkArguments(argc,argv);
+    printf("Openauranb : Change backlight color for ASUS notebooks.\n");
     printf("Press any key to start.\n");
     getchar();
 
     //Try to initialize the libusb library
-    printf("Initializing libusb.\n");
+    printf("Initializing libusb library...\n");
     isError = libusb_init(NULL);
     if(isError != 0){
         printf("ERROR:Could not initialize libusb library.\n");
