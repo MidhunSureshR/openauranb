@@ -67,18 +67,29 @@ void sendControlTransfer(libusb_device_handle *handle){
             0x00, 0x00
     };
 
-    packet_bytes_color[4] = colorProfile.redKey;
-    packet_bytes_color[5] = colorProfile.greenKey;
-    packet_bytes_color[6] = colorProfile.blueKey;
-
-    char packet_bytes_set[] = {
+     char packet_bytes_set[] = {
             //This packet need to be send next to set the color.
             0x5d, 0xb5, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
             0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
             0x00
     };
+
+
+    char packet_bytes_apply[] = {
+            0x5d, 0xb4, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+            0x00
+    };
+
+
+    packet_bytes_color[4] = colorProfile.redKey;
+    packet_bytes_color[5] = colorProfile.greenKey;
+    packet_bytes_color[6] = colorProfile.blueKey;
+
+
     sendBytes(packet_bytes_color,handle);
     sendBytes(packet_bytes_set,handle);
+    sendBytes(packet_bytes_apply,handle);
 
 }
 
@@ -171,6 +182,7 @@ int main(int argc,char* argv[])
     printf("Openauranb : Change backlight color for ASUS notebooks.\n");
     printf("Press any key to start.\n");
     getchar();
+
 
     //Try to initialize the libusb library
     printf("Initializing libusb library...\n");
