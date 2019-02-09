@@ -13,6 +13,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d97c0313-e1aa-4b21-b96e-95dfce477004" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openauranb.dir/rog_aura.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openauranb.dir/rog_aura.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/openauranb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/openauranb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rog_aura.c" beforeDir="false" afterPath="$PROJECT_DIR$/rog_aura.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -40,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rog_aura.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="91" column="41" lean-forward="true" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+            <state relative-caret-position="-1390">
+              <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -73,7 +76,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -85,6 +87,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -127,17 +130,19 @@
       <workItem from="1549082933218" duration="9878000" />
       <workItem from="1549544835714" duration="660000" />
       <workItem from="1549547691486" duration="126000" />
+      <workItem from="1549713027234" duration="5588000" />
+      <workItem from="1549727355587" duration="2367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12141000" />
+    <option name="totallyTimeSpent" value="20096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="8" width="1922" height="1046" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49837664" visible="true" weight="0.15405117" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49837664" visible="true" weight="0.16577825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5016234" side_tool="true" weight="0.25266525" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -151,7 +156,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.36172566" />
+      <window_info active="true" anchor="bottom" id="Messages" order="11" visible="true" weight="0.36126223" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.3297062" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -194,8 +199,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rog_aura.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="91" column="41" lean-forward="true" selection-start-line="91" selection-start-column="41" selection-end-line="91" selection-end-column="41" />
+        <state relative-caret-position="-1390">
+          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

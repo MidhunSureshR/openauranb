@@ -13,4 +13,6 @@ libusb-1.0/libusb.h
 -
 inttypes.h
 -
+string.h
+-
 

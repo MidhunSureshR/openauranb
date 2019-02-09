@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <libusb-1.0/libusb.h>
 #include <inttypes.h>
+#include <string.h>
 
 #define rogAuraHID_PID 6228
 #define rogAuraHID_VID 2821
@@ -61,7 +62,7 @@ void sendControlTransfer(libusb_device_handle *handle){
             0x5d, 0xb3, 0x00, 0x00,
             //Color goes next
             //default color #ffffff
-            0xff, 0xff, 0xff,
+            0x00, 0x00, 0x00,
             0x00,0x00, 0x00, 0x00,
             0x00, 0x00, 0x00, 0x00,
             0x00, 0x00
@@ -85,6 +86,10 @@ void sendControlTransfer(libusb_device_handle *handle){
     packet_bytes_color[4] = colorProfile.redKey;
     packet_bytes_color[5] = colorProfile.greenKey;
     packet_bytes_color[6] = colorProfile.blueKey;
+
+
+
+    printf("Packets are %d %d %d\n",packet_bytes_color[4],packet_bytes_color[5],packet_bytes_color[6]);
 
 
     sendBytes(packet_bytes_color,handle);
@@ -143,26 +148,34 @@ void handleDevice(libusb_device *device, uint8_t interfaceNumber){
 }
 
 void checkArguments(int argc,char* argv[]){
-    uintmax_t R,G,B;
+    char R[3],G[3],B[3];
+
+    R[2] = G[2] = B[2] = '\0';
     colorProfile.redKey = colorProfile.blueKey = colorProfile.greenKey = 0xff;
-    if(argc < 4){
-        printf("No RGB colour code specified as arguments.RGB(255,255,255) will be used.\n");
+
+    if(argc < 2){
+        printf("No arguments found. #ffffff will be used by default.\n");
         return;
     }
-    if(argc > 4){
-        printf("Too many arguments found.Only first three will be considered.\n");
+    if(argc > 2){
+        printf("Too many arguments found.Only first one will be considered.\n");
     }
-    R = strtoumax(argv[1],NULL,16);
-    G = strtoumax(argv[2],NULL,16);
-    B = strtoumax(argv[3],NULL,16);
-   if(R > 597 || G > 597 || B > 597){
-       printf("Invalid arguments.The color must be passed in RGB format.\nRGB(255,255,255) will be used.\n");
-       printf("%d + %d + %d \n",R,G,B);
-       return;
-   }
-   colorProfile.redKey = R;
-   colorProfile.blueKey = B;
-   colorProfile.greenKey = G;
+    if(strlen(argv[1]) != 6){
+        printf("Argument is invalid. Color code must have exactly 6 characters.Do not include '#'.\n");
+    }
+
+    R[0] = argv[1][0];
+    R[1] = argv[1][1];
+    G[0] = argv[1][2];
+    G[1] = argv[1][3];
+    B[0] = argv[1][4];
+    B[1] = argv[1][5];
+
+    printf("Parsed arg values are R = %s G = %s B = %s\n",R,G,B);
+
+    colorProfile.redKey = strtoumax(R,NULL,16);
+    colorProfile.greenKey = strtoumax(G,NULL,16);
+    colorProfile.blueKey = strtoumax(B,NULL,16);
 
 }
 
