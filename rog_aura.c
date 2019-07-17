@@ -2,9 +2,10 @@
 #include <libusb-1.0/libusb.h>
 #include <inttypes.h>
 #include <string.h>
+#include <stdbool.h>
 
-#define rogAuraHID_PID 6228
-#define rogAuraHID_VID 2821
+const int rogAuraHID_PID  = 6228;
+const int rogAuraHID_VID =  2821;
 
 struct colorValues{
     int redKey;
@@ -12,15 +13,15 @@ struct colorValues{
     int blueKey;
 }colorProfile;
 
-int isROGAura(libusb_device *device){
+bool isROGAura(libusb_device *device){
     struct libusb_device_descriptor hardwareINFO;
     libusb_get_device_descriptor(device,&hardwareINFO);
     printf("\tChecking device with product_id = %04x\n and device address = %d\n",hardwareINFO.idProduct,libusb_get_device_address(device));
     if(hardwareINFO.idProduct == rogAuraHID_PID && hardwareINFO.idVendor == rogAuraHID_VID){
-        return 1;
+        return true;
     }
     else
-        return 0;
+        return false;
 }
 
 void sendBytes(char packet[],libusb_device_handle *handle){
@@ -107,7 +108,12 @@ void handleDevice(libusb_device *device, uint8_t interfaceNumber){
     isError = libusb_open(device,&handle);
     if(isError !=0 ){
         printf("ERROR:%s\n",libusb_error_name(isError));
+        if(isError == LIBUSB_ERROR_ACCESS){
+            printf("Please run this program with sufficient permissions. Try running with Sudo.\n");
+        }
+        return;
     }
+
     printf("Successful in creating a handle for device...\n");
 
     //De-attach kernel drivers before USB communication
