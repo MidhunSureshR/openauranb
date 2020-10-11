@@ -3,5 +3,5 @@ project(OpenauraNB)
 set(CMAKE_C_STANDARD 99)
 
 
-add_executable(openauranb rog_aura.c)
+add_executable(openauranb rewrite.c backlight.c backlight.h)
 target_link_libraries(openauranb usb-1.0)
