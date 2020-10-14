@@ -12,5 +12,6 @@ int main(int argc,char* argv[]){
     check_arguments(argc);
     color key_color = hex_to_color(argv[1]);
     set_color(key_color);
+    printf("\nDone.\n");
     return 0;
 }
