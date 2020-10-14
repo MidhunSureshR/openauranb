@@ -1,7 +1,3 @@
-//
-// Created by rmidhunsuresh on 10/11/20.
-//
-
 #ifndef OPENAURANB_DEVICE_H
 #define OPENAURANB_DEVICE_H
 #include <libusb-1.0/libusb.h>

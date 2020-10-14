@@ -1,7 +1,3 @@
-//
-// Created by rmidhunsuresh on 10/12/20.
-//
-
 #ifndef OPENAURANB_INPUT_H
 #define OPENAURANB_INPUT_H
 

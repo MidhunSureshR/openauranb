@@ -1,7 +1,3 @@
-//
-// Created by rmidhunsuresh on 10/11/20.
-//
-
 #include "error.h"
 #include <string.h>
 #include <libusb-1.0/libusb.h>
