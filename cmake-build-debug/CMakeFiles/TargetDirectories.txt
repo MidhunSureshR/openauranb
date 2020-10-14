@@ -1,3 +1,0 @@
-/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir
