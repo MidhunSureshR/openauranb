@@ -1,5 +1,5 @@
 /*
- * Libusb code to control backlight
+ * Use set_color to change keyboard backlight color
  */
 
 #ifndef OPENAURANB_BACKLIGHT_H
@@ -7,10 +7,9 @@
 
 #include <stdio.h>
 #include <libusb-1.0/libusb.h>
+#include "input.h"
 
-const int keyboardHID_PID  = 6228;
-const int keyboardHID_VID =  2821;
 
-void setColor();
+void set_color(color keyboard_color);
 
 #endif //OPENAURANB_BACKLIGHT_H

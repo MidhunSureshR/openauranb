@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/openauranb.dir/rog_aura.c.o  -o openauranb -lusb-1.0 
+/usr/bin/cc -g   CMakeFiles/openauranb.dir/openauranb.c.o CMakeFiles/openauranb.dir/backlight.c.o CMakeFiles/openauranb.dir/error.c.o CMakeFiles/openauranb.dir/device.c.o CMakeFiles/openauranb.dir/input.c.o  -o openauranb  -lusb-1.0 

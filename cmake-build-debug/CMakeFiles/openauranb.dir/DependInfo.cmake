@@ -4,7 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/rmidhunsuresh/CLionProjects/openauranb/rog_aura.c" "/home/rmidhunsuresh/CLionProjects/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir/rog_aura.c.o"
+  "/home/rmidhunsuresh/Desktop/dev/openauranb/backlight.c" "/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir/backlight.c.o"
+  "/home/rmidhunsuresh/Desktop/dev/openauranb/device.c" "/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir/device.c.o"
+  "/home/rmidhunsuresh/Desktop/dev/openauranb/error.c" "/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir/error.c.o"
+  "/home/rmidhunsuresh/Desktop/dev/openauranb/input.c" "/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir/input.c.o"
+  "/home/rmidhunsuresh/Desktop/dev/openauranb/openauranb.c" "/home/rmidhunsuresh/Desktop/dev/openauranb/cmake-build-debug/CMakeFiles/openauranb.dir/openauranb.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
